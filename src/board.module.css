@@ -1,0 +1,8 @@
+.board {
+  display: flex;
+  margin: 2% 30% 2% 30%;
+  vertical-align: top;
+  height: 30%;
+}
+
+
