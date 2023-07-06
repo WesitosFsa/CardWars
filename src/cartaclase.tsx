@@ -1,7 +1,7 @@
 "use client"
 
 class clasecarta {
-  static mazo:clasecarta[]=[new clasecarta ("roja",8,"planta"),new clasecarta ("azul",8,"planta"),new clasecarta ("verde",8,"planta"),new clasecarta ("rojaa",8,"planta"),new clasecarta ("azull",8,"planta"), new clasecarta("azull",4,"agua"),new clasecarta ("roja",8,"planta"),new clasecarta ("roja",8,"planta"),new clasecarta ("roja",8,"planta"),new clasecarta ("roja",8,"planta"),new clasecarta ("roja",8,"planta"),new clasecarta ("roja",8,"planta")]
+  static mazo:clasecarta[]=[new clasecarta ("roja1",1,"fuego"),new clasecarta ("roja2",2,"fuego"),new clasecarta ("roja7",7,"fuego"),new clasecarta ("azul5",5,"agua"),new clasecarta ("azul8",8,"agua"), new clasecarta("verde1",1,"planta"),new clasecarta ("verde2",2,"planta"),new clasecarta ("verde3",3,"planta"),new clasecarta ("verde4",4,"planta")]
     private color: string;
     private numero: number;
     private tipo: string;
