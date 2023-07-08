@@ -1,29 +1,33 @@
-"use client"
-import React from 'react';
+// @ts-nocheck
+"use client";
+import React, { useState } from 'react';
 import Board from '../src/board';
 import clasecarta from '@/src/cartaclase';
-import Mano from "@/src/mano"
+import Mano from '@/src/mano';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+
 const Home = () => {
-  const carta1= new clasecarta("duelo",0,"planta")
-  const carta2= new clasecarta("duelo",0,"agua")
-  const car1 = clasecarta.conseguircarta()
-  const car2 = clasecarta.conseguircarta()
-  const car3 = clasecarta.conseguircarta()
-  const car4 = clasecarta.conseguircarta()
-  const car5 = clasecarta.conseguircarta()
-  const vectorcartas = [car1,car2,car3,car4,car5]
+  const [vectorcartas, setVectorCartas] = useState([]);
+
+  const iniciar = () => {
+    const car1 = clasecarta.conseguircarta();
+    const car2 = clasecarta.conseguircarta();
+    const car3 = clasecarta.conseguircarta();
+    const car4 = clasecarta.conseguircarta();
+    const car5 = clasecarta.conseguircarta();
+    const nuevoVectorCartas = [car1, car2, car3, car4, car5];
+    setVectorCartas(nuevoVectorCartas);
+  };
 
   return (
-    
     <div>
-       <h1>¡Bienvenido al tablero de cartas!</h1>
+      <h1>¡Bienvenido al tablero de cartas!</h1>
+      <button onClick={iniciar}>Iniciar</button>
       <DndProvider backend={HTML5Backend}>
-        <Board/>
-        <Mano cartas={vectorcartas}></Mano>
+        <Board />
+        <Mano cartas={vectorcartas} />
       </DndProvider>
-     
     </div>
   );
 };
