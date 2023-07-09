@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState } from 'react';1
 import styles from './carta.module.css';
 import clasecarta from "./cartaclase";
 import { useDrag } from 'react-dnd';

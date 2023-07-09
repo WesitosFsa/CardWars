@@ -6,6 +6,7 @@ import clasecarta from '@/src/cartaclase';
 import Mano from '@/src/mano';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import styles from '../styles/home.module.css';
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [vectorcartas, setVectorCartas] = useState<clasecarta[]>([]);
@@ -28,7 +29,7 @@ const Home = () => {
   }, []); // Iniciar carga al montar el componente
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>¡Bienvenido al tablero de cartas!</h1>
       {loading ? (
         <p>Cargando...</p>
