@@ -10,8 +10,9 @@ import styles from '../styles/home.module.css';
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [vectorcartas, setVectorCartas] = useState<clasecarta[]>([]);
-  const iniciar = () => {
+  const iniciar =() => {
     setLoading(true);
+    clasecarta.generarmazo();
     setTimeout(() => {
       const car1 = clasecarta.conseguircarta();
       const car2 = clasecarta.conseguircarta();

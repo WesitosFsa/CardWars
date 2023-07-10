@@ -1,7 +1,9 @@
 "use client"
-
+type tipocolor = {
+  [key: string]: string;
+};
 class clasecarta {
-  static mazo:clasecarta[]=[new clasecarta ("roja1",1,"fuego"),new clasecarta ("roja2",2,"fuego"),new clasecarta ("roja7",7,"fuego"),new clasecarta ("azul5",5,"agua"),new clasecarta ("azul8",8,"agua"), new clasecarta("verde1",1,"planta"),new clasecarta ("verde2",2,"planta"),new clasecarta ("verde3",3,"planta"),new clasecarta ("verde4",4,"planta")]
+  static mazo:clasecarta[];
     private color: string;
     private numero: number;
     private tipo: string;
@@ -10,7 +12,20 @@ class clasecarta {
       this.numero = numero;
       this.tipo = tipo;
     }
-  
+    static generarmazo(){
+      clasecarta.mazo = []
+      const tipos:tipocolor = {"agua":"azul","fuego":"roja","planta":"verde"};
+      const numeros = [1, 2];
+      for (let clave in tipos) {
+        for (let j = 0; j < numeros.length; j++) {
+          const tipo = clave;
+          const numero = numeros[j];
+          const color = tipos[clave]+numero
+          clasecarta.mazo.push(new clasecarta(color,numero,tipo));
+          clasecarta.mazo.push(new clasecarta(color,numero,tipo));
+        }
+      }
+    };
     public getColor(): string {
       return this.color;
     }

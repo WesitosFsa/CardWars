@@ -22,8 +22,8 @@ const Board: React.FC = () => {
   const isActive = canDrop && isOver;
   return (
     <div className={styles.board} ref={drop}>
-      <Carta carta={carta1} />
-      <Carta carta={carta2} />
+      <Carta carta={carta1} movible={false} />
+      <Carta carta={carta2} movible={false}/>
     </div>
   );
 };

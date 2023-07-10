@@ -4,13 +4,15 @@ import styles from './carta.module.css';
 import clasecarta from "./cartaclase";
 import { useDrag } from 'react-dnd';
 interface CartaProps {
-    carta:clasecarta
+    carta:clasecarta,
+    movible:boolean
   }
-const Carta: React.FC<CartaProps> = ({carta}) => {
+const Carta: React.FC<CartaProps> = ({carta,movible}) => {
   const imagen = `/carta_${carta.getColor()}.png`;
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'draggable',
     item:carta,
+    canDrag : movible,
 
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),

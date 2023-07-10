@@ -10,7 +10,7 @@ interface manoprops{
     return (
       <div className={styles.mano}>
         {
-            cartas.map((carta)=>(<Carta carta={carta}></Carta>))
+            cartas.map((carta)=>(<Carta carta={carta} movible={true}></Carta>))
         }
       </div>
     );
