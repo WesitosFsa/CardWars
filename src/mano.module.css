@@ -1,7 +1,11 @@
 .mano {
     display: flex;
-    margin: 5% 10% 5% 10%;
+    padding: 5% 10% 5% 10%;
     vertical-align: top;
+    background-image: url("../public/hub_cartas.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   
   
