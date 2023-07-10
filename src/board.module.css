@@ -1,8 +1,13 @@
 .board {
   display: flex;
-  margin: 2% 30% 2% 30%;
+  padding: 2% 5%; 
   vertical-align: top;
   height: 30%;
+  background-image: url('../public/mesa_de_cartas.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0% 25%;
 }
 
 
