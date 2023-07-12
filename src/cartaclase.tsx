@@ -7,24 +7,32 @@ class clasecarta {
     private color: string;
     private numero: number;
     private tipo: string;
-    constructor(color: string, numero: number, tipo: string) {
+    public moviendose: boolean;
+    public id: number;
+    constructor(color: string, numero: number, tipo: string, id: number) {
       this.color = color;
       this.numero = numero;
       this.tipo = tipo;
+      this.moviendose = false;
+      this.id = id;
     }
     static generarmazo(){
       clasecarta.mazo = []
       const tipos:tipocolor = {"agua":"azul","fuego":"roja","planta":"verde"};
       const numeros = [1, 2];
+      let currentid =0
       for (let clave in tipos) {
         for (let j = 0; j < numeros.length; j++) {
           const tipo = clave;
           const numero = numeros[j];
           const color = tipos[clave]+numero
-          clasecarta.mazo.push(new clasecarta(color,numero,tipo));
-          clasecarta.mazo.push(new clasecarta(color,numero,tipo));
+          clasecarta.mazo.push(new clasecarta(color,numero,tipo,currentid));
+          currentid++;
+          clasecarta.mazo.push(new clasecarta(color,numero,tipo,currentid));
+          currentid++;
         }
       }
+      console.log('mazoinicializado')
     };
     public getColor(): string {
       return this.color;
@@ -37,13 +45,19 @@ class clasecarta {
     public getTipo(): string {
       return this.tipo;
     }
+
+    
     static conseguircarta():clasecarta{
       // Genera un índice aleatorio
-      console.log(this.mazo)
-      const randomIndex = Math.floor(Math.random() * this.mazo.length);
+      console.log(clasecarta.mazo)
+      const randomIndex = Math.floor(Math.random() * clasecarta.mazo.length);
 
       // Selecciona y elimina el elemento aleatorio del array copiado
-      return this.mazo.splice(randomIndex, 1)[0];   
+      return clasecarta.mazo.splice(randomIndex, 1)[0];   
+    }
+
+    static haycartasenelmazo(): boolean{
+      return clasecarta.mazo.length >0
     }
   }
   

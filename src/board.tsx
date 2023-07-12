@@ -7,12 +7,14 @@ import { useDrop } from 'react-dnd';
 
 
 const Board: React.FC = () => {
-  const [carta1,setcarta1]=useState(new clasecarta("duelo",0,"duelos")) 
-  const [carta2,setcarta2]=useState(new clasecarta("duelo",0,"duelos"))   
+  const [carta1,setcarta1]=useState(new clasecarta("duelo",0,"duelos",-1)) 
+  const [carta2,setcarta2]=useState(new clasecarta("duelo",0,"duelos",-1))   
   const [{ canDrop, isOver }, drop] = useDrop(() => ({
     accept: 'draggable',
     drop: (item:clasecarta) => {
+      console.log(item);
       setcarta1(item);// Accede a los datos transferidos desde el componente arrastrable
+      return item;
     },
     collect: (monitor) => ({
       isOver: monitor.isOver(),

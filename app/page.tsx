@@ -8,9 +8,8 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import styles from '../styles/home.module.css';
 const Home = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const iniciar =() => {
-    setLoading(true);
     clasecarta.generarmazo();
     setTimeout(() => {
       setLoading(false);
@@ -20,8 +19,8 @@ const Home = () => {
   useEffect(() => {
     iniciar();
   }, []); // Iniciar carga al montar el componente
-  if (loading ){return       
-    <p>Cargando...</p>
+  if (loading ){return (    
+    <p>Cargando...</p>)
   }
   else{
     return (

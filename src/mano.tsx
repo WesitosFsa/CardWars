@@ -16,10 +16,19 @@ import styles from "./mano.module.css"
   useEffect(() => {
     iniciar();
   }, []); // Iniciar carga al montar el componente
+  const removercarta = (Carta: clasecarta) => {
+    const borrador = cartasenmano.filter(carta => carta.id !== Carta.id);
+    if (clasecarta.haycartasenelmazo()){
+      const nuevacarta = clasecarta.conseguircarta();
+      borrador.push(nuevacarta)
+    }
+    console.log(borrador);
+    setcartasdemano(borrador)
+  }
     return (
       <div className={styles.mano}>
         {
-             cartasenmano.map((carta)=>(<Carta carta={carta} movible={true} ></Carta>))
+             cartasenmano.map((carta)=>(<Carta carta={carta} movible={true} removercarta={removercarta} ></Carta>))
         }
       </div>
     );
