@@ -13,6 +13,11 @@ const Carta: React.FC<CartaProps> = ({carta,movible}) => {
     type: 'draggable',
     item:carta,
     canDrag : movible,
+    end : (cartadropeada,monitor)=> {
+      monitor.didDrop()
+
+
+    },
 
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),

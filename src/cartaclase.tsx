@@ -43,9 +43,7 @@ class clasecarta {
       const randomIndex = Math.floor(Math.random() * this.mazo.length);
 
       // Selecciona y elimina el elemento aleatorio del array copiado
-      return this.mazo.splice(randomIndex, 1)[0];
-            
-
+      return this.mazo.splice(randomIndex, 1)[0];   
     }
   }
   
