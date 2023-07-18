@@ -9,6 +9,10 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import styles from '../styles/home.module.css';
 const Home = () => {
   const [loading, setLoading] = useState(true);
+  const [turnodejugador, setturnodejugador] = useState(true);
+  const juegapc = () => {
+    setturnodejugador(false);
+  };
   const iniciar =() => {
     clasecarta.generarmazo();
     setTimeout(() => {
@@ -28,8 +32,8 @@ const Home = () => {
 
             <button onClick={iniciar}>Iniciar</button>
             <DndProvider backend={HTML5Backend}>
-              <Board />
-              <Mano/>
+              <Board turnopc={juegapc} />
+              <Mano miturno={turnodejugador}/> 
             </DndProvider>
       </div>
     );

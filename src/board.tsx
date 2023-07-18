@@ -5,28 +5,30 @@ import clasecarta from './cartaclase';
 import styles from "./board.module.css"
 import { useDrop } from 'react-dnd';
 
-const Board: React.FC = () => {
+interface boardprops {
+  turnopc: () => void
+}
+
+const Board: React.FC <boardprops> = ({turnopc}) => {
   const [carta1, setCarta1] = useState(new clasecarta("duelo", 0, "duelos", -1));
   const [carta2, setCarta2] = useState(new clasecarta("duelo", 0, "duelos", -1));
 
-  const [{ canDrop, isOver }, drop] = useDrop(() => ({
+  const [{ diddrop, item }, drop] = useDrop(() => ({
     accept: 'draggable',
     drop: (item: clasecarta) => {
-      console.log(item);
-      if (carta1.id === -1) {
-        setCarta1(item);
-      } else if (carta2.id === -1) {
-        setCarta2(item);
-      }
+      setCarta1(item);
       return item;
     },
     collect: (monitor) => ({
-      isOver: monitor.isOver(),
-      canDrop: monitor.canDrop(),
+      diddrop: monitor.didDrop(),
+      item: monitor.getDropResult(),
     }),
   }));
+  if (diddrop){
+    turnopc();
+  }
 
-  const isActive = canDrop && isOver;
+
 
   return (
     <div className={styles.board} ref={drop}>

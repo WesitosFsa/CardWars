@@ -3,9 +3,13 @@ import Carta from './carta';
 import clasecarta from './cartaclase';
 import styles from "./mano.module.css"
 
-const Mano: React.FC = () => {
-  const [cartasEnMano, setCartasEnMano] = useState<clasecarta[]>([]);
+interface manoprops{
+  miturno: boolean;
+}
 
+const Mano: React.FC < manoprops > = ({miturno}) => {
+  const [cartasEnMano, setCartasEnMano] = useState<clasecarta[]>([]);
+  const [elementoid, setelemntoid]=useState(0);
   const iniciar = () => {
     const car1 = clasecarta.conseguircarta();
     const car2 = clasecarta.conseguircarta();
@@ -28,11 +32,11 @@ const Mano: React.FC = () => {
     }
     setCartasEnMano(borrador);
   };
-
+  console.log(miturno)
   return (
     <div className={styles.mano}>
-      {cartasEnMano.map(carta => (
-        <Carta key={carta.id} carta={carta} movible={true} removercarta={removerCarta} />
+      {cartasEnMano.map((carta, index) => (
+        <Carta key={`${carta.id}_${new Date().getTime()}`} carta={carta} movible={miturno} removercarta={removerCarta} />
       ))}
     </div>
   );
