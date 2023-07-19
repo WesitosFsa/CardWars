@@ -48,8 +48,6 @@ class clasecarta {
 
     
     static conseguircarta():clasecarta{
-      // Genera un índice aleatorio
-      console.log(clasecarta.mazo)
       const randomIndex = Math.floor(Math.random() * clasecarta.mazo.length);
 
       // Selecciona y elimina el elemento aleatorio del array copiado

@@ -7,22 +7,32 @@ import Mano from '@/src/mano';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import styles from '../styles/home.module.css';
+import compumano from '@/src/computadora';
 const Home = () => {
   const [loading, setLoading] = useState(true);
   const [turnodejugador, setturnodejugador] = useState(true);
+  const [computadora,setComputadora]=useState(null);
   const juegapc = () => {
     setturnodejugador(false);
+    const cartajugada = computadora.jugar();
+    setturnodejugador(true);
+    return cartajugada;
   };
   const iniciar =() => {
     clasecarta.generarmazo();
+    setComputadora(new compumano())
     setTimeout(() => {
       setLoading(false);
     }, 2000); // Simulando una carga de 2 segundos
   };
+  
 
   useEffect(() => {
-    iniciar();
-  }, []); // Iniciar carga al montar el componente
+    if (loading){
+        iniciar();
+        console.log("asdasjdkasdja")
+    }
+  }, [loading]); // Iniciar carga al montar el componente
   if (loading ){return (    
     <p>Cargando...</p>)
   }

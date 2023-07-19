@@ -9,7 +9,6 @@ interface manoprops{
 
 const Mano: React.FC < manoprops > = ({miturno}) => {
   const [cartasEnMano, setCartasEnMano] = useState<clasecarta[]>([]);
-  const [elementoid, setelemntoid]=useState(0);
   const iniciar = () => {
     const car1 = clasecarta.conseguircarta();
     const car2 = clasecarta.conseguircarta();
@@ -32,7 +31,6 @@ const Mano: React.FC < manoprops > = ({miturno}) => {
     }
     setCartasEnMano(borrador);
   };
-  console.log(miturno)
   return (
     <div className={styles.mano}>
       {cartasEnMano.map((carta, index) => (

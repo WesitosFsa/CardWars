@@ -6,27 +6,27 @@ import styles from "./board.module.css"
 import { useDrop } from 'react-dnd';
 
 interface boardprops {
-  turnopc: () => void
+  turnopc: () => clasecarta
 }
 
 const Board: React.FC <boardprops> = ({turnopc}) => {
   const [carta1, setCarta1] = useState(new clasecarta("duelo", 0, "duelos", -1));
   const [carta2, setCarta2] = useState(new clasecarta("duelo", 0, "duelos", -1));
 
-  const [{ diddrop, item }, drop] = useDrop(() => ({
+  let [{ diddrop, item }, drop] = useDrop(() => ({
     accept: 'draggable',
     drop: (item: clasecarta) => {
       setCarta1(item);
+      const newcarta=turnopc();
+      setCarta2(newcarta) 
       return item;
+   
     },
     collect: (monitor) => ({
       diddrop: monitor.didDrop(),
       item: monitor.getDropResult(),
     }),
   }));
-  if (diddrop){
-    turnopc();
-  }
 
 
 
