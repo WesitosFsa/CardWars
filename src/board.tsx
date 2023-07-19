@@ -24,11 +24,10 @@ const Board: React.FC <boardprops> = ({turnopc}) => {
       item: monitor.getDropResult(),
     }),
   }));
+  
   if (diddrop){
     turnopc();
   }
-
-
 
   return (
     <div className={styles.board} ref={drop}>
