@@ -28,8 +28,6 @@ const Board: React.FC <boardprops> = ({turnopc}) => {
     }),
   }));
 
-
-
   return (
     <div className={styles.board} ref={drop}>
       <Carta carta={carta1} movible={false} removercarta={() => {}} />
