@@ -4,6 +4,7 @@ import Carta from './carta';
 import clasecarta from './cartaclase';
 import styles from "./board.module.css"
 import { useDrop } from 'react-dnd';
+import Puntaje from './puntaje';
 
 interface boardprops {
   turnopc: () => clasecarta
@@ -27,11 +28,16 @@ const Board: React.FC <boardprops> = ({turnopc}) => {
       item: monitor.getDropResult(),
     }),
   }));
+  const modelo={"agua":1}
 
   return (
+    <div className={styles.puntaje}>
+    <Puntaje Puntaje={modelo}/>
     <div className={styles.board} ref={drop}>
       <Carta carta={carta1} movible={false} removercarta={() => {}} />
       <Carta carta={carta2} movible={false} removercarta={() => {}} />
+    </div>
+    <Puntaje Puntaje={modelo}/>
     </div>
   );
 };

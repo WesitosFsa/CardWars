@@ -1,13 +1,19 @@
 .board {
   display: flex;
-  padding: 2% 5%; 
+  padding: 3% 0%; 
   vertical-align: top;
-  height: 30%;
+  flex: 2;
+  height: 100%;
   background-image: url('../public/mesa_de_cartas.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 0% 25%;
+  justify-content: center;
+  margin: 0% 5%;
 }
 
+.puntaje{
+  display: flex;
+  height: 50vh;
+}
 

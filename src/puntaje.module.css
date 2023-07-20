@@ -1,0 +1,21 @@
+.Puntaje{
+    flex: 1;
+    height: 100%;
+    background-color: #000;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1%;
+}
+
+/*img {
+    width: 100%; /* Ajustar el tamaño de la imagen al ancho de su celda */
+    /*height: auto; /* Mantener la proporción de la imagen */
+  /*}
+  
+  /* Estilo para los elementos vacíos */
+  /*.empty-cell {
+    width: 100%;
+    height: 0;
+    padding-bottom: calc(100% / 3); /* Mantener el aspecto cuadrado */
+    /*visibility: hidden;
+  /*}
