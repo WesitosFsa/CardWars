@@ -1,17 +1,18 @@
 .Puntaje {
   flex: 1;
   height: 100%;
-  background-color: #000000dc;
-  display: grid;
+  background-image: url(/_next/static/media/marquitos.90d48fd2.png);
+  opacity: 0.88;
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1%;
 }
-
 .Puntaje img {
   width: 100%; 
   height: auto; 
 }
-
 .empty-cell {
   width: 100%;
   height: 0;
