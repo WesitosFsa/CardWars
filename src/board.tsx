@@ -46,7 +46,13 @@ const Board: React.FC<boardprops> = ({ turnopc }) => {
       if (
         (carta1.getTipo() === 'fuego' && carta2.getTipo() === 'planta') ||
         (carta1.getTipo() === 'agua' && carta2.getTipo() === 'fuego') ||
-        (carta1.getTipo() === 'planta' && carta2.getTipo() === 'agua')
+        (carta1.getTipo() === 'planta' && carta2.getTipo() === 'agua') ||
+        (carta1.getTipo() === 'fuego2' && carta2.getTipo() === 'planta') ||
+        (carta1.getTipo() === 'agua2' && carta2.getTipo() === 'fuego') ||
+        (carta1.getTipo() === 'planta2' && carta2.getTipo() === 'agua') ||
+        (carta1.getTipo() === 'fuego' && carta2.getTipo() === 'planta2') ||
+        (carta1.getTipo() === 'agua' && carta2.getTipo() === 'fuego2') ||
+        (carta1.getTipo() === 'planta' && carta2.getTipo() === 'agua2') 
       ) {
         return 'ganar';
       } else {
@@ -54,6 +60,7 @@ const Board: React.FC<boardprops> = ({ turnopc }) => {
       }
     }
   };
+
   return (
     <div className={styles.puntaje}>
       <Puntaje Puntaje={puntaje} />

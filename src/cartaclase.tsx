@@ -18,7 +18,7 @@ class clasecarta {
     }
     static generarmazo(){
       clasecarta.mazo = []
-      const tipos:tipocolor = {"agua":"azul","fuego":"roja","planta":"verde"};
+      const tipos:tipocolor = {"agua":"azul","fuego":"roja","planta":"verde","agua2":"morada","fuego2":"naranja","planta2":"verdef"};
       const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
       let currentid =0
       for (let clave in tipos) {
