@@ -36,3 +36,5 @@ const Carta: React.FC<CartaProps> = ({ carta, movible, removercarta }) => {
 };
 
 export default Carta;
+
+

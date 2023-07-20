@@ -3,7 +3,12 @@
   justify-content: center;
   position: relative;
   margin: 2%;
+  transition: transform 0.2s ease; /* Transición de 0.2 segundos en la escala */
 }
+.carta:hover {
+  transform: scale(1.1); /* Escala de 1.1 al posicionar el mouse sobre la carta */
+}
+
 
 .carta span {
   position: absolute;
