@@ -1,7 +1,7 @@
 .Puntaje {
   flex: 1;
   height: 100%;
-  background-image: url(/_next/static/media/marquitos.90d48fd2.png);
+  background-image: url('../public/marquitos.png');
   opacity: 0.88;
   background-size: cover;
   background-repeat: no-repeat;
@@ -18,4 +18,3 @@
   height: 0;
   padding-bottom: calc(100% / 3); 
 }
-
