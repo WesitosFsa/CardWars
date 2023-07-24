@@ -10,7 +10,7 @@ interface boardprops {
 const Board: React.FC<boardprops> = ({ turnopc }) => {
   const [carta1, setCarta1] = useState(new clasecarta('duelo', 0, 'duelos', -1));
   const [carta2, setCarta2] = useState(new clasecarta('duelo', 0, 'duelos', -1));
-  const [puntaje, setPuntaje] = useState({ ganadas: 0, perdidas: 0 });
+  const [puntaje, setPuntaje] = useState({ gancarta1: true, gancarta2: true });
   let [{ diddrop, item }, drop] = useDrop(() => ({
     accept: 'draggable',
     drop: (item: clasecarta) => {
@@ -20,10 +20,13 @@ const Board: React.FC<boardprops> = ({ turnopc }) => {
       // Lógica de comparación de cartas y actualización del puntaje
       const resultado = compararCartas(item, newcarta);
       if (resultado === 'ganar') {
-        setPuntaje((prevPuntaje) => ({ ...prevPuntaje, ganadas: prevPuntaje.ganadas + 1 }));
+        setPuntaje({ gancarta1: true, gancarta2: false });
       } else if (resultado === 'perder') {
-        setPuntaje((prevPuntaje) => ({ ...prevPuntaje, perdidas: prevPuntaje.perdidas + 1 }));
+        setPuntaje({ gancarta1: false, gancarta2: true });
+      }else if (resultado === 'empate') {
+        setPuntaje({ gancarta1: false, gancarta2: false });
       }
+
 
       return item;
     },
@@ -57,12 +60,12 @@ const Board: React.FC<boardprops> = ({ turnopc }) => {
 
   return (
     <div className={styles.puntaje}>
-      <Puntaje Puntaje={puntaje} />
+      {/*<Puntaje Puntaje={puntaje} />*/}
       <div className={styles.board} ref={drop}>
         <Carta carta={carta1} movible={false} removercarta={() => {}} />
         <Carta carta={carta2} movible={false} removercarta={() => {}} />
       </div>
-      <Puntaje Puntaje={modelo} />
+      {/*<Puntaje Puntaje={modelo} />*/}
     </div>
   );
 };
