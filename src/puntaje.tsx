@@ -9,7 +9,7 @@ const Puntaje: React.FC<Scoreprops> = ({ Puntaje }) => {
     <div className={styles.Puntaje}>
       <div className={styles.puntajeItem}>
         <Image
-          src={`/images/${Puntaje['ganadas'] > Puntaje['perdidas'] ? 'ganaste.png' : Puntaje['ganadas'] < Puntaje['perdidas'] ? 'perdiste.png' : 'empate.png'}`}
+          src={`/images/${Puntaje['ganadas'] > Puntaje['perdidas'] ? 'gano.png' : Puntaje['ganadas'] < Puntaje['perdidas'] ? 'perdiste.png' : 'empate.png'}`}
           alt="Resultado"
           width={100}
           height={100}
