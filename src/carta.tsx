@@ -6,11 +6,12 @@ import { useDrag } from 'react-dnd';
 
 interface CartaProps {
   carta: clasecarta,
-  movible: boolean,
-  removercarta: (carta: clasecarta) => void
+  movible?: boolean,
+  removercarta?: (carta: clasecarta) => void,
+  gris?: boolean,
 }
 
-const Carta: React.FC<CartaProps> = ({ carta, movible, removercarta }) => {
+const Carta: React.FC<CartaProps> = ({ carta, movible=false, removercarta=() => {}, gris=false }) => {
   const imagen = `/carta_${carta.getColor()}.png`;
 
   const [{ isDragging }, drag] = useDrag(() => ({
@@ -28,7 +29,7 @@ const Carta: React.FC<CartaProps> = ({ carta, movible, removercarta }) => {
   }));
 
   return (
-    <div className={styles.carta} ref={drag}>
+    <div className={styles.carta +  (gris ? " " + styles.grayscale:"") } ref={drag}>
       <img src={imagen} alt={carta.getColor()} />
       {carta.getTipo() !== "duelos" && <span>{carta.getNumero()}</span>}
     </div>
