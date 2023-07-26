@@ -6,8 +6,9 @@ import { useDrop } from 'react-dnd';
 import Puntaje from './puntaje';
 interface boardprops {
   turnopc: () => clasecarta;
+  actualizarestado: (estado:string) => void;
 }
-const Board: React.FC<boardprops> = ({ turnopc }) => {
+const Board: React.FC<boardprops> = ({ turnopc, actualizarestado }) => {
   const [carta1, setCarta1] = useState(new clasecarta('duelo', 0, 'duelos', -1));
   const [carta2, setCarta2] = useState(new clasecarta('duelo', 0, 'duelos', -1));
   const [estadocartas, setEstadocartas] = useState({ gancarta1: true, gancarta2: true });
@@ -28,7 +29,6 @@ const Board: React.FC<boardprops> = ({ turnopc }) => {
           setEstadocartas({ gancarta1: false, gancarta2: true });
           const color=carta2.getColor()
           const nuevopuntaje={...puntaje2, [color]:puntaje2[color]+1}
-          console.log(nuevopuntaje)
           setPuntaje2(nuevopuntaje)
         }else if (resultado === 'empate') {
           setEstadocartas({ gancarta1: false, gancarta2: false });
@@ -71,6 +71,23 @@ const Board: React.FC<boardprops> = ({ turnopc }) => {
       }
     }
   };
+
+  const chekearpuntaje = (puntaje: {[color: string]: number}) => {
+    for (const color in puntaje){
+      if(puntaje[color]===3){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  const gano = chekearpuntaje(puntaje1);
+  const perdio = chekearpuntaje(puntaje2);
+  if (gano) {
+    actualizarestado('ganar');
+  } else if(perdio){
+    actualizarestado('perder');
+  }
 
   return (
     <div className={styles.puntaje}>

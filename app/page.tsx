@@ -12,6 +12,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [turnodejugador, setturnodejugador] = useState(true);
   const [computadora,setComputadora]=useState(null);
+  const [estadodejuego, setactualizarestado]=useState("jugando");
   const juegapc = () => {
     setturnodejugador(false);
     const cartajugada = computadora.jugar();
@@ -36,13 +37,19 @@ const Home = () => {
   if (loading ){return (    
     <p>Cargando...</p>)
   }
-  else{
+  else if (estadodejuego === 'ganar'){
+    return (<div> <img className={styles.resultado} src = "/ganaste.png"/> 
+     <button onClick={iniciar}>Iniciar</button> </div>)
+  }else if (estadodejuego === 'perder'){
+    return (<div> <img className={styles.resultado} src = "/perdiste.png"/> 
+    <button onClick={iniciar}>Iniciar</button> </div>)
+    
+  }else{
     return (
       <div className={styles.container}>
-
-            <button onClick={iniciar}>Iniciar</button>
+            
             <DndProvider backend={HTML5Backend}>
-              <Board turnopc={juegapc} />
+              <Board turnopc={juegapc} actualizarestado={setactualizarestado} />
               <Mano miturno={turnodejugador}/> 
             </DndProvider>
       </div>
