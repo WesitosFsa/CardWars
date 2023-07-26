@@ -12,7 +12,7 @@ interface CartaProps {
 }
 
 const Carta: React.FC<CartaProps> = ({ carta, movible=false, removercarta=() => {}, gris=false }) => {
-  const imagen = `/carta_${carta.getColor()}.png`;
+  const imagen = carta.getImage();
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'draggable',

@@ -3,9 +3,9 @@
   padding: 3% 0%; 
   vertical-align: top;
   flex: 2;
+  background-size: 100% 100%;
   height: 100%;
   background-image: url('../public/mesa_de_cartas.png');
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   justify-content: center;
@@ -14,5 +14,4 @@
 
 .puntaje{
   display: flex;
-  height: 50vh;
 }

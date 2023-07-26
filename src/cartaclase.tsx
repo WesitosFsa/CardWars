@@ -27,7 +27,7 @@ class clasecarta {
           {
           const tipo = clave;
           const numero = numeros[j];
-          const color = tip+numero;
+          const color = tip;
           clasecarta.mazo.push(new clasecarta(color,numero,tipo,currentid));
           currentid++;
           clasecarta.mazo.push(new clasecarta(color,numero,tipo,currentid));
@@ -37,6 +37,10 @@ class clasecarta {
       }
       console.log('mazoinicializado')
     };
+    
+    public getImage(): string{
+      return "/carta_"+this.getColor()+this.getNumero()+".png";
+    }
     public getColor(): string {
       return this.color;
     }
