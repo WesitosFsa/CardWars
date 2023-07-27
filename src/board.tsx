@@ -12,8 +12,8 @@ const Board: React.FC<boardprops> = ({ turnopc, actualizarestado }) => {
   const [carta1, setCarta1] = useState(new clasecarta('duelo', 0, 'duelos', -1));
   const [carta2, setCarta2] = useState(new clasecarta('duelo', 0, 'duelos', -1));
   const [estadocartas, setEstadocartas] = useState({ gancarta1: true, gancarta2: true });
-  const [puntaje1, setPuntaje1] = useState({"roja":0,"azul": 0,"verde":0,"morada":0,"verdef": 0,"naranja":0});
-  const [puntaje2, setPuntaje2] = useState({"roja":0,"azul": 0,"verde":0,"morada":0,"verdef": 0,"naranja":0});
+  const [puntaje1, setPuntaje1] = useState({"roja":0,"azul": 0,"verde":0,"morada":0,"verdef": 0,"naranja":0, "duelo":0});
+  const [puntaje2, setPuntaje2] = useState({"roja":0,"azul": 0,"verde":0,"morada":0,"verdef": 0,"naranja":0, "duelo":0});
   const change = () => {
     setEstadocartas({gancarta1: true, gancarta2: true});
       // Lógica de comparación de cartas y actualización del puntaje

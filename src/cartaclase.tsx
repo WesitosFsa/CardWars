@@ -1,15 +1,16 @@
 "use client"
-type tipocolor = {
-  [key:string]: string[];
+type color = 'roja' | 'azul' | 'morada' | 'naranja' |  'verde' | 'verdef' | 'duelo'
+type tipocolordict = {
+  [key:string]: color[];
 };
 class clasecarta {
   static mazo:clasecarta[];
-    private color: string;
+    private color: color;
     private numero: number;
     private tipo: string;
     public moviendose: boolean;
     public id: number;
-    constructor(color: string, numero: number, tipo: string, id: number) {
+    constructor(color: color, numero: number, tipo: string, id: number) {
       this.color = color;
       this.numero = numero;
       this.tipo = tipo;
@@ -18,7 +19,7 @@ class clasecarta {
     }
     static generarmazo(){
       clasecarta.mazo = []
-      const tipos:tipocolor = {"agua":["azul","morada"],"fuego":["roja","naranja"],"planta":["verde","verdef"]};
+      const tipos:tipocolordict = {"agua":["azul","morada"],"fuego":["roja","naranja"],"planta":["verde","verdef"]};
       const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
       let currentid =0
       for (let clave in tipos) {
@@ -41,7 +42,7 @@ class clasecarta {
     public getImage(): string{
       return "/carta_"+this.getColor()+this.getNumero()+".png";
     }
-    public getColor(): string {
+    public getColor(): color{ 
       return this.color;
     }
   
